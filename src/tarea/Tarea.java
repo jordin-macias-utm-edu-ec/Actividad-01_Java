@@ -57,7 +57,14 @@ public class Tarea {
             }
         }
 
+        double porcentajeCorrecto = (double) preguntasCorrectas / totalPreguntas * 100;
+        if (porcentajeCorrecto >= 75) 
 
+
+            System.out.println("DATOS:");
+            System.out.println("Preguntas correctas: " + preguntasCorrectas);
+            System.out.println("Preguntas incorrectas: " + preguntasIncorrectas);
+            System.out.println("Porcentaje de respuestas correctas: " + porcentajeCorrecto + "%");
     
     }
         private static int generarNumeroAleatorio(int nivelDificultad) {
@@ -128,4 +135,6 @@ public class Tarea {
             int indice = random.nextInt(respuestasNegativas.length);
             return respuestasNegativas[indice];
         }
+        
+        
 }
