@@ -58,7 +58,7 @@ public class Tarea {
         }
 
 
-
+    
     }
         private static int generarNumeroAleatorio(int nivelDificultad) {
         Random random = new Random();
@@ -118,7 +118,14 @@ public class Tarea {
         }
         
         
-       
+        private static String obtenerRespuestaNegativaAleatoria() {
+            String[] respuestasNegativas = {"No. Por favor intenta de nuevo.",
+                "Incorrecto. Intenta una vez mas.","No te rindas!",
+                "No. Sigue intentando."
+            };
             
-  
+            Random random = new Random();
+            int indice = random.nextInt(respuestasNegativas.length);
+            return respuestasNegativas[indice];
+        }
 }
