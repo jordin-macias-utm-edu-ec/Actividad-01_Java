@@ -35,12 +35,82 @@ public class Tarea {
         System.out.println("1. Suma");
         System.out.println("2. Resta");
         System.out.println("3. Multiplicacion");
-        System.out.println("4. Divicion");
-        System.out.println("5. Mezcla Aleatoria");
+        System.out.println("4. Division");
+        System.out.println("5. Mezcla aleatoria");
 
         int tipoProblema = scanner.nextInt();
-    }    
+        
+        while (preguntasCorrectas < totalPreguntas) {
+            int numero1 = generarNumeroAleatorio(nivelDificultad);
+            int numero2 = generarNumeroAleatorio(nivelDificultad);
+            String operador = obtenerOperadorAritmetico(tipoProblema);
+            int resultado = realizarOperacion(numero1, numero2, operador);
+            
+            System.out.print("¿Cuanto es " + numero1 + " " + operador + " " + numero2 + "? ");
+            int respuestaUsuario = scanner.nextInt();
+            if (respuestaUsuario == resultado) {
+                preguntasCorrectas++;
+                System.out.println(obtenerRespuestaPositivaAleatoria());
+            }else {
+                preguntasIncorrectas++;
+                System.out.println(obtenerRespuestaNegativaAleatoria());
+            }
+        }
+
+
+    
+    }
+        private static int generarNumeroAleatorio(int nivelDificultad) {
+        Random random = new Random();
+        int maximo = (int) Math.pow(10, nivelDificultad);
+        return random.nextInt(maximo);
 }
 
+        private static String obtenerOperadorAritmetico(int tipoProblema) {
+            switch (tipoProblema) {
+                case 1:
+                    return "+";
+                case 2:
+                    return "-";
+                case 3:
+                    return "*";
+                case 4:
+                    return "/";
+                case 5:
+                    Random random = new Random();
+                    
+                   int operador = random.nextInt(4);
+                   switch (operador) {
+                       case 0:
+                           return "+";
+                       case 1:
+                           return "-";
+                       case 2:
+                           return "*";
+                       case 3:
+                          return "/";
+                   }
+            }
+            return "+";
+        }
         
- 
+        private static int realizarOperacion(int numero1, int numero2, String operador) {
+            switch (operador) {
+                case "+":
+                    return numero1 + numero2;
+                case "-":
+                    return numero1 - numero2;
+                case "*":
+                    return numero1 * numero2;
+                case "/":
+                    return numero1 / numero2;
+            }
+            return 0;
+        }
+        
+        
+
+        
+        
+      
+}
