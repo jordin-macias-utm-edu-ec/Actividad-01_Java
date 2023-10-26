@@ -20,7 +20,7 @@ public class Tarea {
         SecureRandom random = new SecureRandom();
         int preguntasCorrectas = 0;
         int preguntasIncorrectas = 0;
-        int totalPreguntas = 2;
+        int totalPreguntas = 10;
         
         System.out.println("Menu de Opciones");
         System.out.println("Elige el nivel de dificultad:");
@@ -46,7 +46,7 @@ public class Tarea {
             String operador = obtenerOperadorAritmetico(tipoProblema);
             int resultado = realizarOperacion(numero1, numero2, operador);
             
-            System.out.print("¿Cuanto es:   " + numero1 + " " + operador + " " + numero2 + "=");
+            System.out.print("¿Cuanto es:    " + numero1 + " " + operador + " " + numero2 + "   =  ");
             int respuestaUsuario = scanner.nextInt();
             if (respuestaUsuario == resultado) {
                 preguntasCorrectas++;
@@ -58,13 +58,18 @@ public class Tarea {
         }
 
         double porcentajeCorrecto = (double) preguntasCorrectas / totalPreguntas * 100;
-        if (porcentajeCorrecto >= 75) 
-
+        if (porcentajeCorrecto >= 75) {
+            System.out.println("Felicitaciones¡¡");
+            
+        }else {
+            System.out.println("Por favor pide ayuda, a una persona que sepa.");
+        }
 
             System.out.println("DATOS:");
             System.out.println("Preguntas correctas: " + preguntasCorrectas);
             System.out.println("Preguntas incorrectas: " + preguntasIncorrectas);
             System.out.println("Porcentaje de respuestas correctas: " + porcentajeCorrecto + "%");
+            
     
     }
         private static int generarNumeroAleatorio(int nivelDificultad) {
